@@ -16,6 +16,14 @@ public class Aula07 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Cachorro c1 = new Cachorro("fred","vira lata", 10);
+        Cachorro c2 = new Cachorro("bob","vira lata", 8);
+        Cachorro c3 = new Cachorro("marley","vira lata", 4);
+        
+        
+        
+        //jeito que eu fiz e não deu certo
+        
         Cachorro cac[] = new Cachorro[100];
         PetShop loja = new PetShop();
         int cachorro = 0;
@@ -31,16 +39,17 @@ public class Aula07 {
                 Scanner aux1 = new Scanner(System.in);
                  aux = aux1.nextInt();
                 if(aux == 2){
-                    cac[cachorro] = loja.adcCachorro();
                     cachorro++;
+                    cac[cachorro] = loja.adcCachorro();
+                    
                 }else if(aux == 3) {
-                    loja.vendaCachorro(cac[cachorro]);
+                    cac[cachorro] = loja.vendaCachorro(cac[cachorro]);
                 }
             }
         }
         
         System.out.println("PetShop possui: ");
-        System.out.println(loja.numCacPet());
+        System.out.println(loja.numCacPet(cac[cachorro]));
     }
     
 }
