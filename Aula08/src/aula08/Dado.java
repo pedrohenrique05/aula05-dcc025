@@ -14,15 +14,18 @@ import java.util.Random;
  * @return foi iniciado a classe Dado
  */
 public class Dado {
-    
-    private int numero;
+    int faceDado[] = new int[5];
+    private int valFace;
     /**
      * @return gera um numero aleatorio e o retorna
      */
-    public int geraAleatorio(){
-        Random num = new Random();
-        numero = num.nextInt(5);
-        return numero;
+    public int [] geraAleatorio(int numDado){
+        for(int aux = 0 ; aux < numDado ; aux++){
+            Random num = new Random();
+            this.faceDado[aux] = num.nextInt(5)+1;
+        }
+        
+        return faceDado;
     }
 
     
