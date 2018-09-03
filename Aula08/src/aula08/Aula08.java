@@ -6,6 +6,15 @@
 package aula08;
 
 /**
+ * @return informa o que foi feito
+ */
+/**
+ * @author nome do autor
+ */
+/**
+ * @vision informa a versão do arquivo
+ */
+/**
  *
  * @author pedro
  */
@@ -16,6 +25,8 @@ public class Aula08 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Jogo jogar = new Jogo();
+        jogar.iniciaJogo();
     }
     
 }
