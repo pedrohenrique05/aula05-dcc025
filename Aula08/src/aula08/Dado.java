@@ -17,19 +17,14 @@ public class Dado {
     
     private int numero;
     /**
-     * @return seta um numero aleatorio
+     * @return gera um numero aleatorio e o retorna
      */
-    public void setNum(){
+    public int geraAleatorio(){
         Random num = new Random();
         numero = num.nextInt(5);
+        return numero;
     }
-    /**
-     * @return retorna um numero aleatorio
-     * @return 
-     */
-    public int getNum(){
-    return numero+1;
-    }
+
     
     
 }
