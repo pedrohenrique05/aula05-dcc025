@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula08;
+package aula08.pkg1;
 import java.util.Random;
 /**
  *
@@ -11,22 +11,28 @@ import java.util.Random;
  */
 /**
  * 
- * @return foi iniciado a classe Dado
+ *  foi iniciado a classe Dado
  */
 public class Dado {
     int faceDado[] = new int[5];
-    private int valFace;
+    //private int valFace;
     /**
      * @return gera um numero aleatorio e o retorna
      */
-    public int [] geraAleatorio(int numDado){
-        for(int aux = 0 ; aux < numDado ; aux++){
+    /*public int [] geraAleatorio(){
+        for(int aux = 0 ; aux < 5 ; aux++){
             Random num = new Random();
             this.faceDado[aux] = num.nextInt(5)+1;
         }
         
         return faceDado;
-    }
+    }*/
+    
+       public int geraAleatorio(){
+        
+            Random num = new Random();
+            return num.nextInt(5)+1;
+       }
 
     
     

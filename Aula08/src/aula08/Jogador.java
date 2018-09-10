@@ -3,61 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula08;
+package aula08.pkg1;
 import java.util.Scanner;
 /**
  *
  * @author pedro
  */
 public class Jogador {
-Dado valDado = new Dado();
-Pontuacao pont = new Pontuacao();
-private int tabuleiro[] = new int[10];
-private String nome;
-private int idade;
-private int sequencia[] = new int[6];
-static int ind = 0;
+    Dado dd = new Dado();
+    Tabuleiro tb = new Tabuleiro();
+    private int jogada = 0;
+    private int valDados[] = new int[5];
 
-Jogador(String nome, int idade){
-    this.nome = nome;
-    this.idade = idade;
-    for(int aux = 0 ; aux < 5; aux++){
-        this.sequencia[aux] = 0;
+    public void setValDados(int ver){
+        if(ver == 1){
+            int qtd,aux = 0;
+            System.out.println("digites o quantidade de dados que deseja modificar");
+            Scanner qtdMod = new Scanner(System.in);
+            qtd = qtdMod.nextInt();
+            while(aux < qtd){
+                int ind;
+                System.out.println("Digite o indice equivalente");
+                Scanner indAux = new Scanner(System.in);
+                ind = indAux.nextInt();
+                valDados[ind] = dd.geraAleatorio();
+            }
+        }else{
+            for(int aux = 0 ; aux < 5 ; aux++){
+                this.valDados[aux] = dd.geraAleatorio();
+            }
+            this.jogada++;
+        }
+        
     }
-    
-}
-public void setDados(int numJog){
-    
-    this.sequencia  =  valDado.geraAleatorio(numJog);
-    for(int aux = 0 ; aux < 6; aux++){
-        System.out.println(this.sequencia[aux]);
+    public void getValDados(){
+        for(int aux = 0 ; aux < 5 ; aux++){
+           System.out.println( (valDados[aux]) );
+        }
     }
-    
-}
-
-public void setPontuacao(int ind){
-    tabuleiro[ind] = pont.retornaPont(sequencia);
-    
-}
-
-
-
-
-
-public void setNome(){
-    Scanner nome = new Scanner(System.in);
-    this.nome = nome.next();
-}
-public void setIdade(){
-    Scanner idade = new Scanner(System.in);
-    this.idade = idade.nextInt();
-}
-
-
-public void imprimeInfo(){
-    System.out.print("Nome: ");
-    System.out.println(this.nome);
-    System.out.print("Idade: ");
-    System.out.println(this.idade);
-}
+    public void armazenaPontuacao(){
+        tb.pontuacao(valDados);
+    }
 }

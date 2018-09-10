@@ -3,51 +3,57 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula08;
+package aula08.pkg1;
 import java.util.Scanner;
 /**
  *
  * @author pedro
  */
 public class Jogo {
-    /**
-     * cria um objeto dado
-     */
-    
-    
-    int general = 0;
-    int numJogadas = 0;
-    
-    Jogador jg1 = new Jogador("Pedro",20);
-    Jogador jg2 = new Jogador("Juliana", 25);
-    Jogador jg3 = new Jogador("Maria",45);
-    Jogador jg4 = new Jogador("Karol", 23);
-    Jogador jg5 = new Jogador("Barbara", 14);
- 
-    public void iniciaJogo(){
-        int aux = 0;
-        int numRep = 5; 
-       while(aux < 3 && numRep != 0){
-           
-            jg1.setDados(numRep);
-            if(aux < 2){
-                System.out.println("Digite quantos dados quer jogar novamente");
-                Scanner numRepe = new Scanner(System.in);
-                numRep = numRepe.nextInt();
-            }
-            jg1.setPontuacao(numJogadas);
-            aux++;
-       }
-        
-       
-        //jg2.setDados(5);
-       
-        //jg3.setDados(5);
-       
-        //jg4.setDados(5);
-       
-        //jg5.setDados(5);
-       
+    Jogador jg1 = new Jogador();
+    Jogador jg2 = new Jogador();
+    private int numJogadas = 0;
 
+    
+    public void iniciaJogo(){
+        while(this.numJogadas < 10){
+            int ver = 0;
+            int qtdJogada = 0;
+            System.out.println("Jogador 1");
+            jg1.setValDados(ver);
+            jg1.getValDados();
+            while(qtdJogada < 3){
+                System.out.println("Deseja fazer outra jogada(0 - não, 1 - sim)?");
+                Scanner apura = new Scanner(System.in);
+                ver = apura.nextInt();
+                if(ver == 1){
+                    jg1.setValDados(ver);
+                    qtdJogada++;
+                }else{
+                    qtdJogada = 3;
+                }
+            }
+            qtdJogada = 0;
+            ver = 0;
+            
+            System.out.println("Jogador 2");
+            jg2.setValDados(ver);
+            jg2.getValDados();
+            while(qtdJogada < 3){
+                System.out.println("Deseja fazer outra jogada(0 - não, 1 - sim)?");
+                Scanner apura = new Scanner(System.in);
+                ver = apura.nextInt();
+                if(ver == 1){
+                    jg2.setValDados(ver);
+                    qtdJogada++;
+                }else{
+                    qtdJogada = 3;
+                }
+            }
+            
+            
+            this.numJogadas++;
+        }
     }
 }
+//relist
