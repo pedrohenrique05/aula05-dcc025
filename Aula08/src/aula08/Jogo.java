@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula08.pkg1;
+package aula08;
 import java.util.Scanner;
 /**
  *
@@ -18,7 +18,7 @@ public class Jogo {
     public void iniciaJogo(){
         while(this.numJogadas < 10){
             int ver = 0;
-            int qtdJogada = 0;
+            int qtdJogada = 1;
             System.out.println("Jogador 1");
             jg1.setValDados(ver);
             jg1.getValDados();
@@ -29,11 +29,12 @@ public class Jogo {
                 if(ver == 1){
                     jg1.setValDados(ver);
                     qtdJogada++;
-                }else{
+                }else if(ver == 0){
                     qtdJogada = 3;
                 }
             }
-            qtdJogada = 0;
+            jg1.armazenaPontuacao();
+            qtdJogada = 1;
             ver = 0;
             
             System.out.println("Jogador 2");
@@ -46,13 +47,24 @@ public class Jogo {
                 if(ver == 1){
                     jg2.setValDados(ver);
                     qtdJogada++;
-                }else{
+                }else if(ver == 0){
                     qtdJogada = 3;
                 }
             }
-            
+            jg2.armazenaPontuacao();
             
             this.numJogadas++;
+        }
+        if(jg1.pontFinal()> jg2.pontFinal()){
+            System.out.print("O jogador 1 teve ");
+            System.out.print(jg1.pontFinal());
+            System.out.println(" É o campeão");
+        }else if(jg2.pontFinal() > jg1.pontFinal()){
+            System.out.print("O jogador 1 teve ");
+            System.out.print(jg1.pontFinal());
+            System.out.println(" É o campeão");
+        }else{
+            System.out.println("Houve um empate");
         }
     }
 }

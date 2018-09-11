@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula08.pkg1;
+package aula08;
 import java.util.Scanner;
 /**
  *
@@ -27,10 +27,11 @@ public class Jogador {
                 Scanner indAux = new Scanner(System.in);
                 ind = indAux.nextInt();
                 valDados[ind] = dd.geraAleatorio();
+                aux++;
             }
         }else{
-            for(int aux = 0 ; aux < 5 ; aux++){
-                this.valDados[aux] = dd.geraAleatorio();
+            for(int aux1 = 0 ; aux1 < 5 ; aux1++){
+                this.valDados[aux1] = dd.geraAleatorio();
             }
             this.jogada++;
         }
@@ -43,5 +44,9 @@ public class Jogador {
     }
     public void armazenaPontuacao(){
         tb.pontuacao(valDados);
+    }
+    
+    public int pontFinal(){
+        return tb.getPontTotal();
     }
 }
